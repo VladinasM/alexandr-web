@@ -9,6 +9,8 @@ import services3 from '../assets/services-3.webp'
 import about from '../assets/about.webp'
 import '../styles/style.css'
 import Team from "../components/Team";
+import SetAppointment from "./SetAppointment";
+import {SET_APPOINTMENT_ROUTE} from "../utils/consts";
 
 
 
@@ -22,7 +24,7 @@ const MainPage =observer( () => {
         <div className="content">
             <h3>Сделай улыбку белоснежной</h3>
             <p>Клиника создана коллективом стоматологов высокой квалификации, имеющих огромный опыт практической работы и прошедших стажировку в ведущих западных стоматологических клиниках, а также постоянно повышающих свою квалификацию, проходя различные обучающие курсы по применению современных технологий.</p>
-            <Link href="#" class="btn">Записаться на приём</Link>
+            <Link to={SET_APPOINTMENT_ROUTE} class="btn">Записаться на приём</Link>
         </div>
 
 
@@ -95,7 +97,6 @@ const MainPage =observer( () => {
                     <li> <i className="fas fa-check"></i> КОСМЕТИЧЕСКИЙ УХОД</li>
                     <li> <i className="fas fa-check"></i> гигиена полости рта</li>
                 </ul>
-                <Link href="#" className="btn">читать далее </Link>
             </div>
 
             <div className="box active">
@@ -111,7 +112,6 @@ const MainPage =observer( () => {
                     <li> <i className="fas fa-check"></i> КОСМЕТИЧЕСКИЙ УХОД</li>
                     <li> <i className="fas fa-check"></i> гигиена полости рта</li>
                 </ul>
-                <Link href="#" class="btn">читать далее </Link>
             </div>
 
             <div className="box">
@@ -127,41 +127,11 @@ const MainPage =observer( () => {
                     <li> <i className="fas fa-check"></i> КОСМЕТИЧЕСКИЙ УХОД</li>
                     <li> <i className="fas fa-check"></i> гигиена полости рта</li>
                 </ul>
-                <Link href="#" class="btn">читать далее </Link>
             </div>
 
         </div>
 
     </section>
-
-
-    <section className="contact" id="contact">
-
-        <h1 className="heading">Записаться на приём</h1>
-
-        <form action="">
-
-            <span>Ваше имя :</span>
-            <div className="inputBox">
-                <input type="text" placeholder="Имя" required/>
-                <input type="text" placeholder="Фамилия"/>
-            </div>
-
-            <span>Ваш email :</span>
-            <input type="email" placeholder="Введите email" className="box"/>
-
-            <span>Ваш номер :</span>
-            <input type="number" placeholder="Введите номер" className="box" required/>
-
-            <span>Желаемая дата :</span>
-            <input type="datetime-local" className="box"/>
-
-            <input type="submit" value="записаться" className="btn"/>
-
-        </form>
-
-    </section>
-
 
     <section className="footer">
 

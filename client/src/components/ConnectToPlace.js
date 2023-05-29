@@ -5,7 +5,7 @@ import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 import {connectUserAndPlace, getUserData} from "../http/userApi";
 import {buyPlaceWithCard} from "../http/bankApi";
-import {sellPlace} from "../http/appointmentsApi";
+import {setAppointment} from "../http/appointmentsApi";
 
 const ConnectToPlace = observer (({id, show, onHide}) => {
     const {user} = useContext(Context)

@@ -11,7 +11,7 @@ import AppointmentItem from "../components/AppointmentItem";
 const AppointmentPage = observer (() => {
     const {appointment} = useContext(Context)
     useEffect(()=>{
-        getAppointmentList().then((data)=>parkingPlace.setAppointments(data))
+        getAppointmentList().then((data)=>appointment.setAppointments(data))
     },[])
     return (
         <div className="min-vh-100">

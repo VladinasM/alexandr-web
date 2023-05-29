@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import style from '../styles/PersonalDataForm.css'
 import {Button, Card, Form} from "react-bootstrap";
 import InputMask from 'react-input-mask';
-import {addCarToUser, setUserData} from "../http/userApi";
+import {getUserAppointments, setUserData} from "../http/userApi";
 import {LOGIN_ROUTE, PARKING_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
@@ -29,7 +29,7 @@ const PersonalDataForm = observer (() => {
     const addCar = async () => {
         const id = user.user.id;
         try{
-            let car = await addCarToUser(id, carNumber, model, color)
+            // let car = await addCarToUser(id, carNumber, model, color)
         }catch (e) {
             alert(e.response.data.message)
         }

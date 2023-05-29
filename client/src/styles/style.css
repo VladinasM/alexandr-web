@@ -435,6 +435,7 @@ section{
 
 .contact{
     background: var(--light-bg);
+    height: 100vh;
 }
 
 .contact form{

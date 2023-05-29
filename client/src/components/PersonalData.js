@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Context} from "../index";
 import {Button, Card, Image} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
-import {getCarData, getUserData} from "../http/userApi";
+import { getUserData} from "../http/userApi";
 
 
 const PersonalData =observer (() => {
@@ -17,6 +17,9 @@ const PersonalData =observer (() => {
         const email = user.user.email
         return await getUserData(email);
 
+    }
+    const getAppointments = async () => {
+        const id = user.user.id
     }
 
     useEffect(() => {

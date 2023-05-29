@@ -6,13 +6,8 @@ export const getAppointmentList = async () => {
     return data;
 }
 
-export const getPlacesOnLevel = async  (levelId) => {
-    const {data} = await $host.get('api/level/' + levelId);
-    return data;
-}
-
-export const sellPlace = async (placeId) => {
-    const {data} = await $authHost.post('api/sell-place', {placeId})
+export const setAppointment = async (email, phoneNumber, date) => {
+    const {data} = await $authHost.post('api/set-appointment', {email, phoneNumber, date})
     return data
 }
 export const getPlaceOwner = async (placeId) => {

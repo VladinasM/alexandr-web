@@ -1,12 +1,12 @@
 const Router = require('express')
 const router = new Router()
-const parkingController = require("../controllers/parkingController")
+const appointmentController = require("../controllers/appointmentController")
 
 // router.post('/parking', parkingController.createParking)
-router.get('/parking_director', parkingController.getDirectorSurname)
-router.get('/all-places', parkingController.getAllPlaces)
-router.post('/sell-place', parkingController.sellPlace)
-router.post('/get-place-owner', parkingController.getPlaceOwner)
-router.post('/set-place-to-free', parkingController.setPlaceToFree)
+router.get('/parking_director', appointmentController.getDirectorSurname)
+
+router.post('/sell-place', appointmentController.setAppointment)
+router.post('/get-place-owner', appointmentController.getPlaceOwner)
+router.post('/set-place-to-free', appointmentController.setPlaceToFree)
 
 module.exports = router

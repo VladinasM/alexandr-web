@@ -5,7 +5,7 @@ import style from '../styles/PersonalDataForm.css'
 import {Context} from "../index";
 import {connectUserAndPlace, getUserData, setUserData} from "../http/userApi";
 import {observer} from "mobx-react-lite";
-import {sellPlace} from "../http/appointmentsApi";
+import {setAppointment} from "../http/appointmentsApi";
 import {buyPlaceWithCard} from "../http/bankApi";
 
 
@@ -24,7 +24,7 @@ const BuyPlaceForm = observer(({id, cost, level, state, show, onHide}) => {
                 return
             }
             const buyPlace = await buyPlaceWithCard(cardNumber, validity, cvv, cost)
-            const sell = await sellPlace(id);
+            const sell = await setAppointment(id);
             const connect = await connectUserAndPlace(userId, id)
             window.location.reload();
         }catch (e){

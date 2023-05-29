@@ -5,12 +5,13 @@ import {
     LOGIN_ROUTE,
     MAIN_PAGE_ROUTE,
     APPOINTMENT_LIST_ROUTE,
-    REGISTRATION_ROUTE, ADMIN_ROUTE
+    REGISTRATION_ROUTE, ADMIN_ROUTE, SET_APPOINTMENT_ROUTE
 } from "./utils/consts";
 import MainPage from "./pages/MainPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import Level from "./pages/Level";
 import AdminPage from "./pages/AdminPage";
+import SetAppointment from "./pages/SetAppointment";
 
 export const authRoutes = [
     {
@@ -24,6 +25,10 @@ export const authRoutes = [
     {
         path: APPOINTMENT_LIST_ROUTE,
         Component: <AppointmentPage/>
+    },
+    {
+        path: SET_APPOINTMENT_ROUTE,
+        Component: <SetAppointment/>
     },
 ]
 
