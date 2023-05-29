@@ -4,7 +4,7 @@ import {Context} from "../index";
 import {Button, Card, Form, Row} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
-import {getPlaceOwner, setPlaceToFree} from "../http/parkingPlaceApi";
+import {getPlaceOwner, setPlaceToFree} from "../http/appointmentsApi";
 import {delUserAcc} from "../http/userApi";
 
 const AdminPage = observer (() => {

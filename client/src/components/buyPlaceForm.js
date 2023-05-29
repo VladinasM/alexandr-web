@@ -5,7 +5,7 @@ import style from '../styles/PersonalDataForm.css'
 import {Context} from "../index";
 import {connectUserAndPlace, getUserData, setUserData} from "../http/userApi";
 import {observer} from "mobx-react-lite";
-import {sellPlace} from "../http/parkingPlaceApi";
+import {sellPlace} from "../http/appointmentsApi";
 import {buyPlaceWithCard} from "../http/bankApi";
 
 

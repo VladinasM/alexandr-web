@@ -25,8 +25,8 @@ export const connectUserAndPlace = async (userId, parkingPlacePlaceId) => {
     const {data} = await $authHost.post('api/user/connect-user-place', {userId, parkingPlacePlaceId})
     return data
 }
-export const getUserData = async (id) => {
-    const {data} = await $authHost.post('api/user/get-user-data', {id})
+export const getUserData = async (email) => {
+    const {data} = await $authHost.get(`api/user/get-user-data/${email}`)
     return data
 }
 export const addCarToUser = async (userId, carNumber, model, color) => {

@@ -6,26 +6,26 @@ class ParkingController{
         const {placeId, state} = req.params;
         let places
         if(placeId && state){
-            places = await ParkingPlace.findAll({where:{placeId, state}});
+            places = await AppointmentItem.findAll({where:{placeId, state}});
         }
         if(!placeId && state){
-            places = await ParkingPlace.findAll({where:{state}});
+            places = await AppointmentItem.findAll({where:{state}});
         }
         if(placeId && !state){
-            places = await ParkingPlace.findAll({where:{placeId}});
+            places = await AppointmentItem.findAll({where:{placeId}});
         }
         if(!placeId && !state){
-            places = await ParkingPlace.findAll();
+            places = await AppointmentItem.findAll();
         }
         return res.json(places)
     }
     async getDirectorSurname(req, res){
-        const directorSurname = await Parking.findAll();
+        const directorSurname = await AppointmentPage.findAll();
         return res.json(directorSurname);
     }
     async sellPlace(req, res){
         const {placeId} = req.body
-        const place = await ParkingPlace.update({state:false},{where:{placeId:placeId}})
+        const place = await AppointmentItem.update({state:false},{where:{placeId:placeId}})
         res.json(place)
     }
 
@@ -33,7 +33,7 @@ class ParkingController{
         const {placeId} = req.body
         const data = await User.findAll({
             include:[{
-                model: ParkingPlace,
+                model: AppointmentItem,
                 where: {placeId}
             }]
         })
@@ -41,10 +41,10 @@ class ParkingController{
     }
     async setPlaceToFree(req, res){
         const {placeId} = req.body
-        const state = await ParkingPlace.update({state:true},{where:{placeId:placeId}})
+        const state = await AppointmentItem.update({state:true},{where:{placeId:placeId}})
         const data = await User.findAll({
             include:[{
-                model: ParkingPlace,
+                model: AppointmentItem,
                 where: {placeId}
             }]
         }).then(data => {

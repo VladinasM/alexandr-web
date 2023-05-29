@@ -10,7 +10,7 @@ class LevelController{
     async getPlacesOnLevel(req, res){
         const {id} = req.params;
         console.log(id)
-        let places = await ParkingPlace.findAll({where:{levelLevelId:id}})
+        let places = await AppointmentItem.findAll({where:{levelLevelId:id}})
         // let places = await ParkingPlace.findAll({
         //     include:[{
         //         model:Level,

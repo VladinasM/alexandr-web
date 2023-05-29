@@ -1,8 +1,8 @@
 import {$host, $authHost} from "./index";
 import jwt_decode from "jwt-decode";
 
-export const getFreePlaces = async () => {
-    const {data} = await $host.get('api/all-places');
+export const getAppointmentList = async () => {
+    const {data} = await $host.get('api/appointment-list');
     return data;
 }
 

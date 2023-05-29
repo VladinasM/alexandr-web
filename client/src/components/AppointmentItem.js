@@ -7,7 +7,7 @@ import {Context} from "../index";
 import {getUserData} from "../http/userApi";
 import ConnectToPlace from "./ConnectToPlace";
 
-const ParkingPlace = observer( ({id, cost, level, state}) => {
+const AppointmentItem = observer( ({id, cost, level, state}) => {
     const [buyPlaceFormVisible, setBuyPlaceFormVisible] = useState(false)
     const [connectToPlaceVisible, setConnectToPlaceVisible] = useState(false)
     const {user} = useContext(Context);
@@ -59,4 +59,4 @@ const ParkingPlace = observer( ({id, cost, level, state}) => {
     );
 });
 
-export default ParkingPlace;
+export default AppointmentItem;

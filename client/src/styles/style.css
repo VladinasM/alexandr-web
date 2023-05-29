@@ -22,33 +22,31 @@
 }
 
 html{
-    font-size: 62.5%;
+    font-size: 1rem;
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
 
 section{
-    padding: 5rem 7%;
+    padding: 1rem 7%;
 }
 
 .heading{
-    font-size: 4rem;
     text-align: center;
     color: var(--black);
     text-transform: uppercase;
     font-weight: bolder;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .btn{
     margin-top: 1rem;
     display: inline-block;
-    padding: 1rem 3rem;
+    padding: 0.5rem 1rem;
     border-radius: .5rem;
     background: var(--primary);
     cursor: pointer;
-    font-size: 1.7rem;
     color: var(--white);
 }
 
@@ -64,11 +62,11 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 9%;
+    padding: 1rem 9%;
 }
 
 .header .logo{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     color: var(--black);
 }
@@ -79,9 +77,9 @@ section{
 }
 
 .header .navbar a{
-    font-size: 1.7rem;
     color: var(--black);
-    margin: 0 1rem;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
 }
 
 .header .navbar a:hover{
@@ -93,10 +91,9 @@ section{
 }
 
 #menu-btn{
-    font-size: 2.5rem;
     cursor: pointer;
     color: var(--black);
-    margin-left: 1.7rem;
+    margin-left: 0.5rem;
     display: none;
 }
 
@@ -119,19 +116,18 @@ section{
 
 .home .content{
     max-width: 60rem;
-    padding-left: 6rem;
-    padding-top: 10rem;
+    padding-left: 1rem;
+    padding-top: 2rem;
 }
 
 .home .content h3{
-    font-size: 6rem;
+    font-size: 2rem;
     color: var(--black);
     line-height: 1.2;
 }
 
 .home .content p{
     line-height: 2;
-    font-size: 1.5rem;
     color: var(--light-color);
     padding: 1rem 0;
 }
@@ -144,11 +140,11 @@ section{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 0.5rem;
 }
 
 .about .row .image{
-    flex: 1 1 40rem;
+    flex: 1 1 10rem;
 }
 
 .about .row .image img{
@@ -157,19 +153,19 @@ section{
 }
 
 .about .row .content{
-    flex: 1 1 40rem;
+    flex: 1 1 10rem;
 }
 
 .about .row .content h3{
     color: var(--black);
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     line-height: 1.5;
 }
 
 .about .row .content p{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--light-color);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     line-height: 2;
 }
 
@@ -183,16 +179,16 @@ section{
 
 .services .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0.5rem;
 }
 
 .services .box-container .box{
-    padding: 4rem;
+    padding: 1rem;
     text-align: center;
     background: var(--white);
     box-shadow: var(--box-shadow);
-    border-radius: 5rem;
+    border-radius: 2rem;
 }
 
 .services .box-container .box:hover{
@@ -200,18 +196,18 @@ section{
 }
 
 .services .box-container .box img{
-    margin: 1rem 0;
-    height: 10rem;
+    margin: 0.2rem 0;
+    height: 3rem;
 }
 
 .services .box-container .box h3{
     font-size: 2rem;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     color: var(--black);
 }
 
 .services .box-container .box p{
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--light-color);
     line-height: 2;
 }
@@ -237,7 +233,7 @@ section{
     gap: 20px
 }
 .team .slide .image .share{
-    padding: 2rem;
+    padding: 0.5rem;
     position: absolute;
     bottom: -10rem;
     left: 0; right: 0;
@@ -249,8 +245,8 @@ section{
 }
 
 .team .slide .image .share a{
-    font-size: 3rem;
-    margin: 0 1rem;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
     color: var(--white);
 }
 
@@ -260,7 +256,7 @@ section{
 
 .team .slide .content{
     display: flex;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     align-items: center;
     justify-content: space-between;
 }
@@ -271,7 +267,7 @@ section{
 }
 
 .team .slide .content span{
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2;
     color: var(--light-color);
 }
@@ -290,10 +286,10 @@ section{
 }
 
 .pricing .box-container .box{
-    height: 46rem;
-    width: 30rem;
-    margin: 2rem 4rem;
-    border-radius: 1rem;
+    height: 22rem;
+    width: 20rem;
+    margin: 0.5rem 1rem;
+    border-radius: 3.2rem;
     box-shadow: var(--box-shadow);
     text-align: center;
     overflow: hidden;
@@ -309,46 +305,47 @@ section{
     list-style: none;
 }
 .pricing .box-container .box .title{
-    margin: 3rem 0;
-    font-size: 2.2rem;
+    margin: 0.5rem 0;
+    padding-top: 1rem;
+    font-size: 1.2rem;
     color: var(--black);
     text-transform: uppercase;
 }
 
 .pricing .box-container .box .price{
     color: var(--primary);
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 .pricing .box-container .box .price .currency{
-    font-size: 4rem;
-    line-height: 3.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
     font-weight: 300;
 }
 
 .pricing .box-container .box .price .amount{
-    font-size: 5.8rem;
-    line-height: 4.5rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
     font-weight: 700;
 }
 
 .pricing .box-container .box .price .duration{
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 400;
     letter-spacing: .2rem;
 }
 
 .pricing .box-container .box ul li{
     text-align: left;
-    font-size: 1.6rem;
-    padding-left: 3.5rem;
-    margin: 2rem auto;
+    font-size: 1.1rem;
+    padding-left: 0.5rem;
+    margin: 0.5rem auto;
     color: var(--light-color);
     text-transform: uppercase;
 }
 
 .pricing .box-container .box ul li i{
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     color: var(--secondary);
 }
 
@@ -358,8 +355,8 @@ section{
 
 .blog .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0.5rem;
 }
 
 .blog .box-container .box{
@@ -367,7 +364,7 @@ section{
 }
 
 .blog .box-container .box .image{
-    height: 25rem;
+    height: 5rem;
     width: 100%;
     overflow: hidden;
 }
@@ -383,15 +380,15 @@ section{
 }
 
 .blog .box-container .box .content{
-    padding: 2rem 1.5rem;
+    padding: 1rem 0.5rem;
 }
 
 .blog .box-container .box .content .link{
     display: inline-block;
-    margin-bottom: 3rem;
-    padding: .6rem 1.5rem;
+    margin-bottom: 1rem;
+    padding: .6rem 1rem;
     background: var(--primary);
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--white);
 }
 
@@ -400,14 +397,14 @@ section{
 }
 
 .blog .box-container .box .content .icons{
-    padding-bottom: 1.7rem;
+    padding-bottom: 0.7rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .blog .box-container .box .content .icons a{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: var(--light-color);
 }
 
@@ -421,13 +418,13 @@ section{
 }
 
 .blog .box-container .box .content h3{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: var(--black);
 }
 
 .blog .box-container .box .content p{
-    padding: 1rem 0;
-    font-size: 1.4rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
     color: var(--light-color);
     line-height: 2;
 }
@@ -441,7 +438,7 @@ section{
 }
 
 .contact form{
-    padding: 2rem;
+    padding: 0.5rem;
     background: var(--white);
     max-width: 50rem;
     margin: 0 auto;
@@ -449,7 +446,7 @@ section{
 }
 
 .contact form span{
-    font-size: 1.7rem;
+    font-size: 1rem;
     color: var(--primary);
 }
 
@@ -460,9 +457,9 @@ section{
 }
 
 .contact form .inputBox input{
-    padding: 1rem;
-    margin: 1rem 0;
-    font-size: 1.7rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
     color: var(--black);
     text-transform: capitalize;
     background: var(--light-bg);
@@ -471,12 +468,12 @@ section{
 }
 
 .contact form .box{
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     width: 100%;
     background: var(--light-bg);
     border-radius: .5rem;
-    padding: 1rem;
-    font-size: 1.7rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
     color: var(--black);
     text-transform: capitalize;
 }
@@ -492,17 +489,17 @@ section{
 .footer .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 2rem;
+    gap: 0.5rem;
 }
 
 .footer .box-container .box h3{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     padding: 1rem 0;
     color: var(--secondary);
 }
 
 .footer .box-container .box p{
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: .5rem 0;
     line-height: 2;
     color: var(--light-color);
@@ -517,9 +514,9 @@ section{
     width: 4.5rem;
     background: var(--primary);
     color: var(--white);
-    line-height: 4.5rem;
+    line-height: 2.5rem;
     border-radius: 10%;
-    font-size: 1.7rem;
+    font-size: 1rem;
     margin-right: .3rem;
     text-align: center;
 }
@@ -530,7 +527,7 @@ section{
 
 .footer .box-container .box .link{
     display: block;
-    font-size: 1.7rem;
+    font-size: 1rem;
     line-height: 2;
     color: var(--primary);
     padding: .5rem 0;
@@ -541,9 +538,9 @@ section{
 }
 
 .footer .credit{
-    margin-top: 3rem;
-    padding-top: 3rem;
-    font-size: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 1rem;
     text-align: center;
     text-transform: capitalize;
     color: var(--primary);
@@ -555,80 +552,3 @@ section{
 }
 
 
-/* footer ends */
-
-/* media queries */
-
-@media (max-width: 991px){
-
-    html{
-        font-size: 55%;
-    }
-
-    .header .btn{
-        display: none;
-    }
-
-    section{
-        padding: 2rem;
-    }
-
-}
-
-@media (max-width: 768px){
-
-    #menu-btn{
-        display: inline-block;
-    }
-
-    #menu-btn.fa-times{
-        transform: rotate(180deg);
-    }
-
-    .header .navbar{
-        position: absolute;
-        top: 99%; left: 0; right: 0;
-        background: var(--white);
-        border-top: var(--border);
-        padding: 1rem 0;
-        text-align: center;
-        flex-flow: column;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    }
-
-    .header .navbar.active{
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .header .navbar a{
-        display: block;
-        padding: 1rem 0;
-        font-size: 2rem;
-    }
-
-    .home{
-        background-position: left;
-    }
-
-    .home .content{
-        max-width: 50rem;
-        padding-left: 3rem;
-    }
-
-    .home .content h3{
-        font-size: 4rem;
-    }
-
-}
-
-@media(max-width:450px){
-
-    html{
-        font-size: 50%;
-    }
-
-    .home .content h3{
-        font-size: 3rem;
-    }
-
-}

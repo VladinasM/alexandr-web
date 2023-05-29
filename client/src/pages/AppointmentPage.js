@@ -3,15 +3,15 @@ import ChooseLevel from "../components/ChooseLevel";
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
-import {getFreePlaces} from "../http/parkingPlaceApi";
+import {getAppointmentList} from "../http/appointmentsApi";
 import BuyPlaceForm from "../components/buyPlaceForm";
-import ParkingPlace from "../components/ParkingPlace";
+import AppointmentItem from "../components/AppointmentItem";
 
 
-const Parking = observer (() => {
-    const {parkingPlace} = useContext(Context)
+const AppointmentPage = observer (() => {
+    const {appointment} = useContext(Context)
     useEffect(()=>{
-        getFreePlaces().then((data)=>parkingPlace.setParkingPlaces(data))
+        getAppointmentList().then((data)=>parkingPlace.setAppointments(data))
     },[])
     return (
         <div className="min-vh-100">
@@ -21,8 +21,8 @@ const Parking = observer (() => {
         <Container>
             <Row>
                 {
-                    parkingPlace.places.map(place =>
-                        <ParkingPlace key={place.placeId} id={place.placeId} cost={place.placeCost} level={place.levelLevelId} state={place.state}/>
+                    appointment.appointment.map(place =>
+                        <AppointmentItem key={place.placeId} id={place.placeId} cost={place.placeCost} level={place.levelLevelId} state={place.state}/>
                     )
                 }
             </Row>
@@ -32,4 +32,4 @@ const Parking = observer (() => {
     );
 });
 
-export default Parking;
+export default AppointmentPage;

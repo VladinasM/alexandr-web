@@ -3,10 +3,10 @@ import {Card, Container, Row} from "react-bootstrap";
 import {LOGIN_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
-import {getFreePlaces, getPlacesOnLevel} from "../http/parkingPlaceApi";
+import {getAppointmentList, getPlacesOnLevel} from "../http/appointmentsApi";
 import {useParams} from "react-router-dom";
 import ChooseLevel from "../components/ChooseLevel";
-import ParkingPlace from "../components/ParkingPlace";
+import AppointmentItem from "../components/AppointmentItem";
 
 
 
@@ -25,7 +25,7 @@ const Level =observer( () => {
                 <Row>
                     {
                         parkingPlace.places.map(place =>
-                            <ParkingPlace key={place.placeId} id={place.placeId} cost={place.placeCost} level={place.levelLevelId} state={place.state}/>
+                            <AppointmentItem key={place.placeId} id={place.placeId} cost={place.placeCost} level={place.levelLevelId} state={place.state}/>
                         )
                     }
                 </Row>

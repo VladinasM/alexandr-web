@@ -30,6 +30,7 @@ const Auth = observer(() => {
       }
       const nav = () => navigate(MAIN_PAGE_ROUTE)
       nav()
+      console.log(data)
       user.setUser(data)
       user.setIsAuth(true)
 

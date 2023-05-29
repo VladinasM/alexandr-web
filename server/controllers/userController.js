@@ -59,10 +59,10 @@ class UserController{
 
         return res.json({phoneNumber: userData.phoneNumber, surname: userData.surname, name: userData.name})
     }
-    async getUserData(req, res, next){
-        const {id} = req.body
-        const userData = await User.findOne({where:{id}});
-        // return res.json({phoneNumber: userData.phoneNumber, surname: userData.surname, name: userData.name, parkingPlace: userData.parkingPlacePlaceId})
+    async getUserName(req, res){
+        const {email} = req.params
+        const userData = await User.findOne({email});
+
         return res.json(userData)
     }
     async connectUserAndPlace(req, res) {
@@ -101,12 +101,12 @@ class UserController{
         if(placeId){
             data = await User.findAll({
                 include:[{
-                    model:ParkingPlace,
+                    model:AppointmentItem,
                     where:{placeId}
                 }]
             })
             if(data.length === 1){
-                const state = await ParkingPlace.update({state:true}, {where:{placeId}})
+                const state = await AppointmentItem.update({state:true}, {where:{placeId}})
             }
         }
         const user = await User.destroy({where:{id}})

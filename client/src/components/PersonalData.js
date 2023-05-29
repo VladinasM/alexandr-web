@@ -7,27 +7,20 @@ import {getCarData, getUserData} from "../http/userApi";
 
 const PersonalData =observer (() => {
     const {user} = useContext(Context);
-    console.log(user)
     const [phoneNumber, setPhoneNumber] = useState('')
-    const [surname, setSurname] = useState('')
-    const [name, setName] = useState('')
+    const [userData, setUserData] = useState({})
     const [parkingPlaceId, setParkingPlaceId] = useState('')
     const [carArray, setCarArray] = useState([])
+    console.log(userData)
 
     const getData = async () => {
-        const id = user.user.id
-        // let userData = await getUserData(id);
-        // let carData = await getCarData(id);
-        // setPhoneNumber(userData.phoneNumber)
-        // setSurname(userData.surname)
-        // setName(userData.name)
-        // setParkingPlaceId(userData.parkingPlacePlaceId)
-        // setCarArray(carData[0].cars)
-        // return userData
+        const email = user.user.email
+        return await getUserData(email);
+
     }
 
     useEffect(() => {
-        // getData().then(data => data)
+        getData().then(data => setUserData(data))
     }, [])
     return (
         <div className="d-flex justify-content-between gap-5 me-5">
@@ -39,9 +32,9 @@ const PersonalData =observer (() => {
                         width={200} height={200}
                         src={"https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"}/>
                     <div className="bg-transparent w-75 m-4 p-3 rounded-4 border border-white">
-                        <Card.Text className="me-10">{user.user.email}</Card.Text>
-                        <Card.Text className="me-10">{user.user.fullName}</Card.Text>
-                        <Card.Text className="me-10">{surname} {name}</Card.Text>
+                        <Card.Text className="me-10">EMAIL: {user.user.email}</Card.Text>
+                        <Card.Text className="me-10">ИМЯ: {userData.fullName}</Card.Text>
+                        <Card.Text className="me-10"></Card.Text>
                         <Card.Text className="me-10">{parkingPlaceId}</Card.Text>
                     </div>
                 </Card.Body>

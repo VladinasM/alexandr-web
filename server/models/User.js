@@ -5,6 +5,14 @@ const User = new Schema({
   password: {type: String, require: true},
   role: {type: String, require:true, default: 'USER'},
   fullName: {type: String, require:true},
+  visitHistory: [
+    {
+      type: Schema.Types.ObjectId,
+      reason: String,
+      date: Date,
+      cost: Number
+    }
+  ]
 })
 
 module.exports = model('User', User)
