@@ -3,6 +3,7 @@ import {Context} from "../index";
 import {Button, Card, Image} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import { getUserData} from "../http/userApi";
+import {getUserAppointments} from "../http/appointmentsApi";
 
 
 const PersonalData =observer (() => {
@@ -10,20 +11,22 @@ const PersonalData =observer (() => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [userData, setUserData] = useState({})
     const [parkingPlaceId, setParkingPlaceId] = useState('')
-    const [carArray, setCarArray] = useState([])
-    console.log(userData)
+    const [appointments, setAppointments] = useState([])
+    console.log(appointments[0])
 
     const getData = async () => {
         const email = user.user.email
         return await getUserData(email);
 
     }
-    const getAppointments = async () => {
+    const getUserApps = async () => {
         const id = user.user.id
+        return await getUserAppointments(id)
     }
 
     useEffect(() => {
         getData().then(data => setUserData(data))
+        getUserApps().then(data => setAppointments(data))
     }, [])
     return (
         <div className="d-flex justify-content-between gap-5 me-5">
@@ -37,29 +40,20 @@ const PersonalData =observer (() => {
                     <div className="bg-transparent w-75 m-4 p-3 rounded-4 border border-white">
                         <Card.Text className="me-10">EMAIL: {user.user.email}</Card.Text>
                         <Card.Text className="me-10">ИМЯ: {userData.fullName}</Card.Text>
-                        <Card.Text className="me-10"></Card.Text>
-                        <Card.Text className="me-10">{parkingPlaceId}</Card.Text>
                     </div>
                 </Card.Body>
             </Card>
-            <Card style={{width:400, cursor:"pointer", backgroundColor:"transparent"}} className="border border-bottom-0">
+            <Card style={{width:400, cursor:"pointer", backgroundColor:"lightgray"}} className="border border-bottom-0">
                 <Card.Body style={{textAlign:"center"}} className="d-flex flex-column align-items-center">
-                    <h5>Информация о парковочном месте</h5>
-                    <div className="bg-transparent border border-white w-75 m-4 p-3 rounded-4">
-                        <Card.Text className="me-10">Вы владеете парковочным местом под номером №{parkingPlaceId}</Card.Text>
-                    </div>
-                    <h5 className="mb-4">Информация об автомобиле:</h5>
-                    <div className="bg-transparent w-75 p-3 rounded-4 border border-white">
-                        <Card.Text className="me-10">Количество ваших автомобилей: {carArray.length}</Card.Text>
-                    </div>
+                    <h5>История посещений</h5>
                     <div style={{backgroundColor:"transparent"}} className="p-3 rounded-4 mt-4">
                         {
-                            carArray.map((car, i) => {
-                                  return  <div className="bg-transparent border border-white p-4 m-3" style={{backgroundColor:"black", borderRadius:10}} key={car.number}>
-                                        <Card.Text className="me-10"><span className="text-decoration-underline">Автомобиль {i+1}:</span></Card.Text>
-                                        <Card.Text className="me-10">Номер автомобиля: {car.carNumber}</Card.Text>
-                                        <Card.Text className="me-10">Модель автомобиля: {car.model}</Card.Text>
-                                        <Card.Text className="me-10">Цвет: {car.color}</Card.Text>
+                            appointments.map((app, i) => {
+                                  return  <div className="bg-transparent border border-3 p-4 m-3" style={{ borderRadius:10}}>
+                                        <Card.Text className="me-10">Номер телефона: {app.phoneNumber}</Card.Text>
+                                        <Card.Text className="me-10">Причина обращения: {app.reason}</Card.Text>
+                                        <Card.Text className="me-10">Дата: {app.date.toLocaleString('en-US').slice(0, -8).replace('T', '; ')}</Card.Text>
+                                        <Card.Text className="me-10">Состояние: {app.patientState}</Card.Text>
                                     </div>
                                 }
                             )

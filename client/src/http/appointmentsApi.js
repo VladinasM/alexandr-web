@@ -1,8 +1,11 @@
 import {$host, $authHost} from "./index";
-import jwt_decode from "jwt-decode";
 
 export const getAppointmentList = async () => {
-    const {data} = await $host.get('api/appointment-list');
+    const {data} = await $authHost.get('api/appointment-list');
+    return data;
+}
+export const getUserAppointments = async (id) => {
+    const {data} = await $authHost.get(`api/user-appointments/${id}`);
     return data;
 }
 

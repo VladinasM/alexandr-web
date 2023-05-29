@@ -4,7 +4,6 @@ import {LOGIN_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {useParams} from "react-router-dom";
-import ChooseLevel from "../components/ChooseLevel";
 import AppointmentItem from "../components/AppointmentItem";
 
 
@@ -15,7 +14,6 @@ const Level =observer( () => {
     return (
         <div className="min-vh-100">
             <div>
-                <ChooseLevel/>
             </div>
             <Container>
                 <Row>

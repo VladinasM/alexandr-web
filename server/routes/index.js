@@ -16,6 +16,7 @@ router.post('/user/add-car-to-user', userController.addCarToUser)
 router.post('/user/del-user', userController.delUserAcc)
 
 router.get('/appointment-list', appointmentController.getAppointments)
+router.get('/user-appointments/:id', appointmentController.getUserAppointments)
 router.post('/set-appointment', appointmentController.setAppointment)
 
 

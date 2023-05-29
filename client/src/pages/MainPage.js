@@ -10,7 +10,7 @@ import about from '../assets/about.webp'
 import '../styles/style.css'
 import Team from "../components/Team";
 import SetAppointment from "./SetAppointment";
-import {SET_APPOINTMENT_ROUTE} from "../utils/consts";
+import {APPOINTMENT_LIST_ROUTE, SET_APPOINTMENT_ROUTE} from "../utils/consts";
 
 
 
@@ -25,6 +25,8 @@ const MainPage =observer( () => {
             <h3>Сделай улыбку белоснежной</h3>
             <p>Клиника создана коллективом стоматологов высокой квалификации, имеющих огромный опыт практической работы и прошедших стажировку в ведущих западных стоматологических клиниках, а также постоянно повышающих свою квалификацию, проходя различные обучающие курсы по применению современных технологий.</p>
             <Link to={SET_APPOINTMENT_ROUTE} class="btn">Записаться на приём</Link>
+            <br/>
+            <Link to={APPOINTMENT_LIST_ROUTE} class="btn">Посмотреть расписание</Link>
         </div>
 
 

@@ -1,62 +1,29 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Card from "react-bootstrap/Card";
 import {observer} from "mobx-react-lite";
-import {Button} from "react-bootstrap";
-import BuyPlaceForm from "./buyPlaceForm";
 import {Context} from "../index";
 import {getUserData} from "../http/userApi";
-import ConnectToPlace from "./ConnectToPlace";
+import {getUserAppointments} from "../http/appointmentsApi";
 
-const AppointmentItem = observer( ({id, cost, level, state}) => {
-    const [buyPlaceFormVisible, setBuyPlaceFormVisible] = useState(false)
-    const [connectToPlaceVisible, setConnectToPlaceVisible] = useState(false)
-    const {user} = useContext(Context);
-    const [isParking, setIsParking] = useState(null);
-    const getUser = async () => {
-        const id = user.user.id
-        let userData = await getUserData(id);
-        setIsParking(userData.parkingPlacePlaceId)
-        return isParking
-    }
-    useEffect(()=> {
-        getUser().then(data => data)
-    },[isParking])
+const AppointmentItem = observer(({app}) => {
+  const {user} = useContext(Context);
 
-    return (
-        <Card className="m-4" style={{ width: '12rem', height:233 }}>
-            <Card.Body>
-                <Card.Title>Место №{id}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Цена:{cost}</Card.Subtitle>
-                <Card.Text>Этаж №{level}</Card.Text>
-                {
-                    state?
-                        <div style={{border:"5px solid green"}}><Card.Text>Состояние: Свободно</Card.Text></div>
-                        :
-                        <div style={{border:"5px solid red"}}><Card.Text>Состояние: Занято</Card.Text></div>
-                }
-                {
-                    state?
-                        <Button
-                            onClick={() => setBuyPlaceFormVisible(true)}
-                            style={{margin:"5px"}}
-                            variant="outline-primary">Купить место</Button>
-                        :
-                    isParking?
-                            <div></div>
-                            :
-                            <Button
-                                onClick={() => setConnectToPlaceVisible(true)}
-                            style={{margin:"5px"}}
-                            variant="outline-primary">Добавиться</Button>
+  return (
+    <Card style={{width:'100%', cursor: "pointer", backgroundColor: "lightgray"}} className=" d-block border border-bottom-0">
+      <Card.Body style={{textAlign: "center"}} className="d-flex align-items-center">
+        <div style={{backgroundColor: "transparent"}} className="p-3 rounded-4 mt-4 w-100">
+          <div className="bg-transparent border border-3 p-4 m-3 d-flex justify-content-between" style={{borderRadius: 10}}>
+            <Card.Text className="me-10">Номер телефона: {app.phoneNumber}</Card.Text>
+            <Card.Text className="me-10">Причина обращения: {app.reason}</Card.Text>
+            <Card.Text
+              className="me-10">Дата: {app.date.toLocaleString('en-US').slice(0, -8).replace('T', '; ')}</Card.Text>
+            <Card.Text className="me-10">Состояние: {app.patientState}</Card.Text>
+          </div>
+        </div>
+      </Card.Body>
+    </Card>
 
-                }
-
-            </Card.Body>
-            <BuyPlaceForm id={id} cost={cost} level={level} state={state} show={buyPlaceFormVisible} onHide={() => setBuyPlaceFormVisible(!buyPlaceFormVisible)}/>
-            <ConnectToPlace id={id} show={connectToPlaceVisible} onHide={() => setConnectToPlaceVisible(!connectToPlaceVisible)}/>
-        </Card>
-
-    );
+  );
 });
 
 export default AppointmentItem;

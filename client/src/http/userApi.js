@@ -29,10 +29,7 @@ export const getUserData = async (email) => {
     const {data} = await $authHost.get(`api/user/get-user-data/${email}`)
     return data
 }
-export const getUserAppointments = async (userId) => {
-    const {data} = await $authHost.get(`api/user/get-user-app/${userId}`)
-    return data
-}
+
 
 export const delUserAcc = async (id) => {
     const {data} = await $authHost.post('api/user/del-user', {id})

@@ -7,8 +7,8 @@ import {observer} from "mobx-react-lite";
 
 const PersonalAccount = observer (() => {
     return (
-        <div className="min-vh-100 d-flex justify-content-end">
-            <PersonalDataForm/>
+        <div className="min-vh-100 d-flex justify-content-between">
+            {/*<PersonalDataForm/>*/}
             <PersonalData/>
         </div>
     );
