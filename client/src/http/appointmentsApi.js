@@ -13,11 +13,7 @@ export const setAppointment = async (email, phoneNumber, date) => {
     const {data} = await $authHost.post('api/set-appointment', {email, phoneNumber, date})
     return data
 }
-export const getPlaceOwner = async (placeId) => {
-    const {data} = await $authHost.post('api/get-place-owner', {placeId})
-    return data
-}
-export const setPlaceToFree = async (placeId) => {
-    const {data} = await $authHost.post('api/set-place-to-free', {placeId})
+export const updateAppointment = async (email, patientState, description) => {
+    const {data} = await $authHost.post('api/update-appointment', {email, patientState, description})
     return data
 }

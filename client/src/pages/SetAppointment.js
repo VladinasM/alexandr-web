@@ -19,7 +19,7 @@ const SetAppointment = () => {
 
   const formHandler = async (e) => {
     e.preventDefault()
-    let data = await setAppointment(user.user.email, phoneNumber, date.current.value.toString())
+    let data = await setAppointment(user.user.email, phoneNumber, date.current.value)
     const nav = () => navigate(MAIN_PAGE_ROUTE)
     nav()
   }

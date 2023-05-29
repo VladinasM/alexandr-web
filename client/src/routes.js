@@ -9,7 +9,6 @@ import {
 } from "./utils/consts";
 import MainPage from "./pages/MainPage";
 import AppointmentPage from "./pages/AppointmentPage";
-import Level from "./pages/Level";
 import AdminPage from "./pages/AdminPage";
 import SetAppointment from "./pages/SetAppointment";
 
@@ -45,9 +44,6 @@ export const publicRoutes = [
         path: MAIN_PAGE_ROUTE,
         Component: <MainPage/>
     },
-    {
-        path: LEVEL_ROUTE,
-        Component: <Level/>
-    },
+
 
 ]

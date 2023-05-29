@@ -49,68 +49,17 @@ class UserController{
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         return res.json({token})
     }
-    async setUserData(req, res, next){
-        const {phoneNumber, surname, name, id} = req.body
-        if(!phoneNumber || !surname || !name){
-            return next(ApiError.badRequest("Введены не все данные"))
-        }
-        const user = await User.update({phoneNumber: phoneNumber, surname: surname, name: name}, {where: {id:id}})
-        const userData = await User.findOne({where:{id}})
-
-        return res.json({phoneNumber: userData.phoneNumber, surname: userData.surname, name: userData.name})
-    }
     async getUserName(req, res){
         const {email} = req.params
         const userData = await User.findOne({email});
 
         return res.json(userData)
     }
-    async connectUserAndPlace(req, res) {
-        const {userId, parkingPlacePlaceId} = req.body
-        const update = await User.update({parkingPlacePlaceId:parkingPlacePlaceId}, {where:{id:userId}})
-        return res.json(userId)
-    }
-    async addCarToUser(req, res) {
-        const {userId, carNumber, model, color} = req.body
-        const findCar = await Car.findOne({where: {carNumber}})
-        let userCar;
-        if(findCar){
-            userCar = await UserCar.create({userId, carCarNumber: carNumber})
-        }
-        else{
-            const car = await Car.create({carNumber, model, color})
-            userCar = await UserCar.create({userId, carCarNumber: carNumber})
-        }
 
-        return res.json(userCar)
-    }
-    async getCarData(req, res){
-        const {id} = req.body
-        const carData = await User.findAll({
-            where: {id},
-            include:[{
-                model: Car,
-            }]
-        })
-        return res.json(carData)
-    }
     async delUserAcc(req, res){
-        const {id} = req.body
-        const placeId = await User.findOne({where:{id}}).then(data => data.parkingPlacePlaceId)
-        let data
-        if(placeId){
-            data = await User.findAll({
-                include:[{
-                    model:AppointmentItem,
-                    where:{placeId}
-                }]
-            })
-            if(data.length === 1){
-                const state = await AppointmentItem.update({state:true}, {where:{placeId}})
-            }
-        }
-        const user = await User.destroy({where:{id}})
-        return res.json(placeId)
+        const {email} = req.body
+        const deleted = await User.deleteOne({email})
+        return res.json(deleted)
     }
 }
 

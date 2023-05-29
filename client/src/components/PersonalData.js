@@ -8,9 +8,7 @@ import {getUserAppointments} from "../http/appointmentsApi";
 
 const PersonalData =observer (() => {
     const {user} = useContext(Context);
-    const [phoneNumber, setPhoneNumber] = useState('')
     const [userData, setUserData] = useState({})
-    const [parkingPlaceId, setParkingPlaceId] = useState('')
     const [appointments, setAppointments] = useState([])
     console.log(appointments[0])
 
@@ -43,17 +41,17 @@ const PersonalData =observer (() => {
                     </div>
                 </Card.Body>
             </Card>
-            <Card style={{width:400, cursor:"pointer", backgroundColor:"lightgray"}} className="border border-bottom-0">
+            <Card style={{   cursor:"pointer", backgroundColor:"lightgray"}} className="border border-bottom-0">
                 <Card.Body style={{textAlign:"center"}} className="d-flex flex-column align-items-center">
                     <h5>История посещений</h5>
                     <div style={{backgroundColor:"transparent"}} className="p-3 rounded-4 mt-4">
                         {
                             appointments.map((app, i) => {
-                                  return  <div className="bg-transparent border border-3 p-4 m-3" style={{ borderRadius:10}}>
-                                        <Card.Text className="me-10">Номер телефона: {app.phoneNumber}</Card.Text>
-                                        <Card.Text className="me-10">Причина обращения: {app.reason}</Card.Text>
-                                        <Card.Text className="me-10">Дата: {app.date.toLocaleString('en-US').slice(0, -8).replace('T', '; ')}</Card.Text>
-                                        <Card.Text className="me-10">Состояние: {app.patientState}</Card.Text>
+                                  return  <div className="bg-transparent border border-3 p-4 m-3 d-flex gap-3" style={{ borderRadius:10}}>
+                                        <Card.Text className="me-10">Номер телефона:<br/> {app.phoneNumber}</Card.Text>
+                                        <Card.Text className="me-10">Причина обращения:<br/> {app.reason}</Card.Text>
+                                        <Card.Text className="me-10">Дата:<br/> {app.date.toLocaleString('en-US').slice(0, -8).replace('T', '; ')}</Card.Text>
+                                        <Card.Text className="me-10">Состояние:<br/> {app.patientState}</Card.Text>
                                     </div>
                                 }
                             )

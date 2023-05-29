@@ -31,7 +31,7 @@ export const getUserData = async (email) => {
 }
 
 
-export const delUserAcc = async (id) => {
-    const {data} = await $authHost.post('api/user/del-user', {id})
+export const delUserAcc = async (email) => {
+    const {data} = await $authHost.post('api/user/del-user', {email})
     return data
 }
