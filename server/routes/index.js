@@ -5,7 +5,10 @@ const appointmentController = require("../controllers/appointmentController");
 
 
 router.post('/user/login', userController.login)
+router.post('/user/registration', userController.registration)
+router.post('/user/update-user-info', userController.updUserInfo)
 router.get('/user/get-user-data/:email', userController.getUserName)
+router.get('/user/get-users', userController.getUsers)
 router.post('/user/del-user', userController.delUserAcc)
 
 
