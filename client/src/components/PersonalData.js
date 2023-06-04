@@ -8,8 +8,6 @@ import {getUserAppointments} from "../http/appointmentsApi";
 
 const PersonalData =observer (() => {
     const {user} = useContext(Context);
-    console.log(user.user)
-    const [userData, setUserData] = useState({})
     const [appointments, setAppointments] = useState([])
 
     const getData = async () => {
@@ -23,7 +21,6 @@ const PersonalData =observer (() => {
     }
 
     useEffect(() => {
-        // getData().then(data => setUserData(data))
         getUserApps().then(data => setAppointments(data))
     }, [])
     return (
@@ -37,7 +34,9 @@ const PersonalData =observer (() => {
                         src={"https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"}/>
                     <div className="bg-transparent w-75 m-4 p-3 rounded-4 border border-white">
                         <Card.Text className="me-10">EMAIL: {user.user.email}</Card.Text>
-                        {/*<Card.Text className="me-10">ИМЯ: {userData.fullName}</Card.Text>*/}
+                        <Card.Text className="me-10">ИМЯ: {user.user.fullName}</Card.Text>
+                        <Card.Text className="me-10">Роль: {user.user.role}</Card.Text>
+                        <Card.Text className="me-10">Должность: {user.user.position || '-'}</Card.Text>
                     </div>
                 </Card.Body>
             </Card>

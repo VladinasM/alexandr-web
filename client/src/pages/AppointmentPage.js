@@ -15,8 +15,7 @@ const AppointmentPage = observer(() => {
     },[])
     return (
         <div className="min-vh-100">
-            <div>
-            </div>
+            <br/>
         <Container>
             <div className="d-flex flex-column gap-2">
                 {
