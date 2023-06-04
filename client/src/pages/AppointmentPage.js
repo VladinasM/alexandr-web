@@ -1,13 +1,13 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Col, Container, Row} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {getAppointmentList} from "../http/appointmentsApi";
 import AppointmentItem from "../components/AppointmentItem";
 
-const AppointmentPage = observer (() => {
-    const {appointment} = useContext(Context)
-  console.log(appointment)
+const AppointmentPage = observer(() => {
+  const {appointment} = useContext(Context)
+
     useEffect(()=>{
         getAppointmentList().then((data)=>{
           appointment.setAppointments(data)
@@ -21,7 +21,7 @@ const AppointmentPage = observer (() => {
             <div className="d-flex flex-column gap-2">
                 {
                     appointment.appointments.map(app =>
-                        <AppointmentItem key={app.id} app={app}/>
+                        <AppointmentItem key={app['_id']} app={app}/>
                     )
                 }
             </div>

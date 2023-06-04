@@ -5,10 +5,10 @@ const Appointment = new Schema({
   phoneNumber: {type: String, require: true},
   date: {type: Date, require:true},
   reason: {type: String, default: 'Лечение зуба'},
-  patientState: {type: String, default: 'Лечение завершено'},
+  patientState: {type: String, default: 'Заявка на лечение'},
   cost: {type: Number, default: 3000},
-  description: {type: String, default: 'tbd...'},
-  email: {type: String, unique:true, require: true},
+  description: {type: String, default: '...'},
+  email: {type: String, require: true},
 })
 
 module.exports = model('Appointment', Appointment)

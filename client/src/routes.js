@@ -1,18 +1,30 @@
 import PersonalAccount from "./pages/PersonalAccount";
 import Auth from "./pages/Auth";
 import {
-    PERSONAL_ROUTE, LEVEL_ROUTE,
+    PERSONAL_ROUTE,
     LOGIN_ROUTE,
     MAIN_PAGE_ROUTE,
     APPOINTMENT_LIST_ROUTE,
-    REGISTRATION_ROUTE, ADMIN_ROUTE, SET_APPOINTMENT_ROUTE
+    ADMIN_ROUTE,
+    SET_APPOINTMENT_ROUTE
 } from "./utils/consts";
 import MainPage from "./pages/MainPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import AdminPage from "./pages/AdminPage";
 import SetAppointment from "./pages/SetAppointment";
 
-export const authRoutes = [
+
+
+export const routes = [
+    {
+        path: LOGIN_ROUTE,
+        Component: <Auth/>
+    },
+
+    {
+        path: MAIN_PAGE_ROUTE,
+        Component: <MainPage/>
+    },
     {
         path: PERSONAL_ROUTE,
         Component: <PersonalAccount/>
@@ -28,21 +40,6 @@ export const authRoutes = [
     {
         path: SET_APPOINTMENT_ROUTE,
         Component: <SetAppointment/>
-    },
-]
-
-export const publicRoutes = [
-    {
-        path: LOGIN_ROUTE,
-        Component: <Auth/>
-    },
-    {
-        path: REGISTRATION_ROUTE,
-        Component: <Auth/>
-    },
-    {
-        path: MAIN_PAGE_ROUTE,
-        Component: <MainPage/>
     },
 
 

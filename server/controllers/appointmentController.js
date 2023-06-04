@@ -1,5 +1,7 @@
 const Appointment = require('../models/Appointment')
 const User = require("../models/User");
+const mongoose = require('mongoose');
+
 
 
 class AppointmentController {
@@ -12,11 +14,10 @@ class AppointmentController {
   async getUserAppointments(req, res) {
     const {id} = req.params
     let appointments = await Appointment.find({
-      'user': id
+      'user': id.toString()
     })
     return res.json(appointments)
   }
-
   async setAppointment(req, res) {
     const {email, phoneNumber, date} = req.body
     const user = await User.findOne({email: email})
@@ -25,10 +26,16 @@ class AppointmentController {
   }
 
   async updateAppointment(req, res) {
-    const {email, patientState, description} = req.body
-    const appointment = await Appointment.updateOne({email: email}, {$set: {patientState: patientState, description: description}})
-    res.json(appointment)
+    const {id, patientState, description} = req.body
+    const appointment = await Appointment.findOneAndUpdate({'_id': id}, {$set: {patientState: patientState, description: description}})
+    const list = await Appointment.find({}).sort({date: -1})
+    res.json(list)
   }
+  async deleteAppointment(req, res) {
+      const {id} = req.body
+      const deleted = await Appointment.findOneAndDelete({'_id': id})
+      res.json(deleted)
+    }
 
 }
 

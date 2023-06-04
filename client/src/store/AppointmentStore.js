@@ -13,7 +13,4 @@ export default class AppointmentStore {
     get appointments(){
         return this._appointments
     }
-    get selectedState(){
-        return this._selectedState;
-    }
 }

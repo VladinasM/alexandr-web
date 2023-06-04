@@ -8,9 +8,9 @@ import {getUserAppointments} from "../http/appointmentsApi";
 
 const PersonalData =observer (() => {
     const {user} = useContext(Context);
+    console.log(user.user)
     const [userData, setUserData] = useState({})
     const [appointments, setAppointments] = useState([])
-    console.log(appointments[0])
 
     const getData = async () => {
         const email = user.user.email
@@ -18,12 +18,12 @@ const PersonalData =observer (() => {
 
     }
     const getUserApps = async () => {
-        const id = user.user.id
+        const id = user.user['_id']
         return await getUserAppointments(id)
     }
 
     useEffect(() => {
-        getData().then(data => setUserData(data))
+        // getData().then(data => setUserData(data))
         getUserApps().then(data => setAppointments(data))
     }, [])
     return (
@@ -37,7 +37,7 @@ const PersonalData =observer (() => {
                         src={"https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png"}/>
                     <div className="bg-transparent w-75 m-4 p-3 rounded-4 border border-white">
                         <Card.Text className="me-10">EMAIL: {user.user.email}</Card.Text>
-                        <Card.Text className="me-10">ИМЯ: {userData.fullName}</Card.Text>
+                        {/*<Card.Text className="me-10">ИМЯ: {userData.fullName}</Card.Text>*/}
                     </div>
                 </Card.Body>
             </Card>

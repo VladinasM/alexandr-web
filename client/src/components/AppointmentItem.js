@@ -3,17 +3,21 @@ import Card from "react-bootstrap/Card";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {Button, Form} from "react-bootstrap";
-import {updateAppointment} from "../http/appointmentsApi";
+import {deleteAppointment, getAppointmentList, updateAppointment} from "../http/appointmentsApi";
 
 const AppointmentItem = observer(({app}) => {
-  const {user} = useContext(Context);
-  console.log(user)
+  const {user, appointment} = useContext(Context);
+  console.log(appointment)
   const patientState = useRef(null)
   const descr = useRef(null)
 
   const stateHandler = async () => {
-     await updateAppointment(app.email, patientState.current.value, descr.current.value)
-    window.location.reload();
+    await updateAppointment(app['_id'], patientState.current.value, descr.current.value)
+    appointment.setAppointments(await getAppointmentList())
+  }
+  const deleteApp = async () => {
+    await deleteAppointment(app['_id'])
+    appointment.setAppointments(await getAppointmentList())
   }
 
   return (
@@ -32,7 +36,7 @@ const AppointmentItem = observer(({app}) => {
         </div>
       </Card.Body>
       {
-        user.user.role === 'DOCTOR' &&
+        user.user.role === 'доктор' &&
         <div className='d-flex justify-content-center flex-column'>
           <Form.Control
             className="mt-3" placeholder="Состояние заявки"
@@ -44,6 +48,10 @@ const AppointmentItem = observer(({app}) => {
             variant={"success"}
             onClick={stateHandler}
           >Обновить данные</Button>
+          <Button
+            style={{backgroundColor:'red'}}
+            onClick={deleteApp}
+          >Удалить заявку</Button>
         </div>
       }
     </Card>
