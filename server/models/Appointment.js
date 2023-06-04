@@ -8,7 +8,7 @@ const Appointment = new Schema({
   patientState: {type: String, default: 'Заявка на лечение'},
   cost: {type: Number, default: 3000},
   description: {type: String, default: '...'},
-  email: {type: String, require: true},
+  email: {type: String},
 })
 
 module.exports = model('Appointment', Appointment)
