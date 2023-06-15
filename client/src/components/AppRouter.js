@@ -3,6 +3,8 @@ import {Routes, Route} from "react-router-dom";
 import {routes} from "../routes";
 import {Context} from "../index";
 import {
+  ADMIN_DELETE_ROUTE,
+  ADMIN_REGISTER_ROUTE,
   ADMIN_ROUTE,
   APPOINTMENT_LIST_ROUTE,
   LOGIN_ROUTE,
@@ -17,6 +19,8 @@ import AdminPage from "../pages/AdminPage";
 import AppointmentPage from "../pages/AppointmentPage";
 import SetAppointment from "../pages/SetAppointment";
 import {observer} from "mobx-react-lite";
+import RegisterNewUser from "../pages/RegisterNewUser";
+import DeleteUser from "../pages/DeleteUser";
 
 const AppRouter =observer (() => {
   const {user} = useContext(Context)
@@ -27,6 +31,8 @@ const AppRouter =observer (() => {
       <Route path={LOGIN_ROUTE} element={<Auth/>}/>
       {user.isAuth && <Route path={PERSONAL_ROUTE} element={<PersonalAccount/>}/>}
       {user.user.role === 'админ' && <Route path={ADMIN_ROUTE} element={<AdminPage/>}/>}
+      {user.user.role === 'админ' && <Route path={ADMIN_REGISTER_ROUTE} element={<RegisterNewUser/>}/>}
+      {user.user.role === 'админ' && <Route path={ADMIN_DELETE_ROUTE} element={<DeleteUser/>}/>}
       {(user.user.role === 'доктор' || user.user.role === 'админ') && <Route path={APPOINTMENT_LIST_ROUTE} element={<AppointmentPage/>}/>}
       {user.user.role === 'пациент' && <Route path={SET_APPOINTMENT_ROUTE} element={<SetAppointment/>}/>}
     </Routes>

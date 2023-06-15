@@ -6,12 +6,14 @@ import {
     MAIN_PAGE_ROUTE,
     APPOINTMENT_LIST_ROUTE,
     ADMIN_ROUTE,
-    SET_APPOINTMENT_ROUTE
+    SET_APPOINTMENT_ROUTE, ADMIN_REGISTER_ROUTE, ADMIN_DELETE_ROUTE
 } from "./utils/consts";
 import MainPage from "./pages/MainPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import AdminPage from "./pages/AdminPage";
 import SetAppointment from "./pages/SetAppointment";
+import RegisterNewUser from "./pages/RegisterNewUser";
+import DeleteUser from "./pages/DeleteUser";
 
 
 
@@ -40,6 +42,14 @@ export const routes = [
     {
         path: SET_APPOINTMENT_ROUTE,
         Component: <SetAppointment/>
+    },
+    {
+        path: ADMIN_REGISTER_ROUTE,
+        Component: <RegisterNewUser/>
+    },
+    {
+        path: ADMIN_DELETE_ROUTE,
+        Component: <DeleteUser/>
     },
 
 

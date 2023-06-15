@@ -16,16 +16,15 @@ const AppointmentPage = observer(() => {
     return (
         <div className="min-vh-100">
             <br/>
-        <Container>
-            <div className="d-flex flex-column gap-2">
+          <table className='border border-2 w-100  me-3'>
+            <tbody>
                 {
                     appointment.appointments.map(app =>
                         <AppointmentItem key={app['_id']} app={app}/>
                     )
                 }
-            </div>
-        </Container>
-
+            </tbody>
+          </table>
         </div>
     );
 });
