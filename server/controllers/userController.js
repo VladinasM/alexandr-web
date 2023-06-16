@@ -27,8 +27,8 @@ class UserController {
   }
 
   async updUserInfo(req, res) {
-    const {email, password, role, position, fullName} = req.body
-    const user = await User.findOneAndUpdate({email: email}, {$set: {email, password, role, position, fullName}})
+    const {id, email, password, role, position, fullName} = req.body
+    const user = await User.findOneAndUpdate({'_id': id}, {$set: {email, password, role, position, fullName}})
     return res.json(user)
   }
 

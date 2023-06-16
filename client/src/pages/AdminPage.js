@@ -9,8 +9,6 @@ import {Context} from "../index";
 
 const AdminPage = observer(() => {
   const {user} = useContext(Context);
-  console.log(user)
-
 
   return (
     <div className='d-flex flex-column'>

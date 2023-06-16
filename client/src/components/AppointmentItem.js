@@ -1,9 +1,7 @@
 import React, {useContext, useEffect, useRef, useState} from 'react';
-import Card from "react-bootstrap/Card";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {Button, Form} from "react-bootstrap";
-import {deleteAppointment, getAppointmentList, updateAppointment} from "../http/appointmentsApi";
 import AppointmentDataUpdate from "./AppointmentDataUpdate";
 
 const AppointmentItem = observer(({app}) => {

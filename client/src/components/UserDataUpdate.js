@@ -15,7 +15,7 @@ const UserDataUpdate = observer(({ show, onHide, currUser}) => {
   const [fullName, setFullName] = useState(currUser.fullName);
 
   const dataUpdate = async () => {
-    await updateUserInfo(email, password, role, position, fullName)
+    await updateUserInfo(currUser['_id'], email, password, role, position, fullName)
     getUsers().then(data => user.setUserList(data))
   }
 

@@ -9,8 +9,8 @@ export const login = async (email, password) => {
     return data
 }
 
-export const updateUserInfo = async (email, password, role, position, fullName) => {
-    const {data} = await $host.post('api/user/update-user-info', {email, password, role, position, fullName})
+export const updateUserInfo = async (id, email, password, role, position, fullName) => {
+    const {data} = await $host.post('api/user/update-user-info', {id, email, password, role, position, fullName})
     return data
 }
 
