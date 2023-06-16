@@ -1,12 +1,22 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import UserDataUpdate from "./UserDataUpdate";
+import {delUserAcc, getUsers} from "../http/userApi";
+import {Context} from "../index";
 
-const UserInAdminPage = ({user}) => {
+const UserInAdminPage = ({currUser}) => {
   const [showModal, setShowModal] = useState(false);
+  const {user} = useContext(Context)
 
   const onClickhandler = () => {
     setShowModal(true)
+  }
+
+  const deleteAccount = async () => {
+    const a = await delUserAcc(currUser['_id'])
+    getUsers().then(data => {
+      user.setUserList(data)
+    })
   }
 
   return (
@@ -15,38 +25,43 @@ const UserInAdminPage = ({user}) => {
         <td className='border border-2 p-5'>
           Email:
           <br/>
-          {user.email || 'Отсутствует'}
+          {currUser.email || 'Отсутствует'}
         </td>
         <td className='border border-2 p-5'>
           Пароль:
           <br/>
-          {user.password || 'Отсутствует'}
+          {currUser.password || 'Отсутствует'}
         </td>
         <td className='border border-2 p-5'>
           Роль:
           <br/>
-          {user.role || 'Отсутствует'}
+          {currUser.role || 'Отсутствует'}
         </td>
         <td className='border border-2 p-5'>
           Должность:
           <br/>
-          {user.position || 'Отсутствует'}
+          {currUser.position || 'Отсутствует'}
         </td>
         <td className='border border-2 p-5'>
           Фамилия и имя:
           <br/>
-          {user.fullName || 'Отсутствует'}
+          {currUser.fullName || 'Отсутствует'}
         </td>
-        <td className='border border-2 p-5'>
+        <td className='border border-2 p-3'>
           <Button
             variant={"success"}
             onClick={onClickhandler}
           >Обновить данные</Button>
+          <Button
+            className='d-inline-block d-block'
+            variant={"success"}
+            onClick={deleteAccount}
+          >Удалить пользователя</Button>
         </td>
       </tr>
       <UserDataUpdate
         show={showModal}
-        currUser={user}
+        currUser={currUser}
         onHide={() => setShowModal(false)}
       />
     </>

@@ -20,7 +20,7 @@ const AdminPage = observer(() => {
       <table className='border border-2'>
         <tbody>
         {
-          user.userList.map(user => <UserInAdminPage key={user['_id']} user={user}/>)
+          user.userList.map(user => <UserInAdminPage key={user['_id']} currUser={user}/>)
         }
         </tbody>
       </table>

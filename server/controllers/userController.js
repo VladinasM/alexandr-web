@@ -45,8 +45,8 @@ class UserController {
   }
 
   async delUserAcc(req, res) {
-    const {email} = req.body
-    const deleted = await User.deleteOne({email})
+    const {id} = req.body
+    const deleted = await User.deleteOne({'_id':id})
     return res.json(deleted)
   }
 }

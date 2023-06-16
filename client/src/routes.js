@@ -13,7 +13,6 @@ import AppointmentPage from "./pages/AppointmentPage";
 import AdminPage from "./pages/AdminPage";
 import SetAppointment from "./pages/SetAppointment";
 import RegisterNewUser from "./pages/RegisterNewUser";
-import DeleteUser from "./pages/DeleteUser";
 
 
 
@@ -47,10 +46,5 @@ export const routes = [
         path: ADMIN_REGISTER_ROUTE,
         Component: <RegisterNewUser/>
     },
-    {
-        path: ADMIN_DELETE_ROUTE,
-        Component: <DeleteUser/>
-    },
-
 
 ]

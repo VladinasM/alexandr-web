@@ -21,7 +21,7 @@ const UserDataUpdate = observer(({ show, onHide, currUser}) => {
 
   return (
     <>
-      <Modal show={show} onHide={onHide}>
+      <Modal show={show} onHide={onHide} className='d-inline-block'>
         <div className='border border-2'>
           <div className='border border-2 p-4'>
             Email:

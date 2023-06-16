@@ -24,7 +24,7 @@ export const getUsers = async () => {
 }
 
 
-export const delUserAcc = async (email) => {
-    const {data} = await $host.post('api/user/del-user', {email})
+export const delUserAcc = async (id) => {
+    const {data} = await $host.post('api/user/del-user', {id})
     return data
 }
